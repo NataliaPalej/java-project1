@@ -31,10 +31,7 @@ public class PartTwo extends JFrame implements ActionListener {
 		// Set title
 		setTitle("Natalia Palej A00279259 - Part 2");
 				
-		// Add action to buttons
-		b1.addActionListener(this);
-		b2.addActionListener(this);
-		b3.addActionListener(this);
+		// Add action to checkbox
 		cb1.addActionListener(this);
 				
 		// Set buttons size
