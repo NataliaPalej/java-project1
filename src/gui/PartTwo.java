@@ -1,5 +1,6 @@
 package gui;
 
+import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
@@ -8,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 
 @SuppressWarnings("serial")
@@ -20,17 +22,20 @@ public class PartTwo extends JFrame implements ActionListener {
 	JButton b2 = new JButton();
 	JButton b3 = new JButton();
 	
+	JCheckBox cb1 = new JCheckBox("Give Colors", false);
+	
 	public PartTwo() {
 		// Setting frame to exit on window close
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				
 		// Set title
-		setTitle("Natalia Palej A00279259 - Part 1");
+		setTitle("Natalia Palej A00279259 - Part 2");
 				
 		// Add action to buttons
 		b1.addActionListener(this);
 		b2.addActionListener(this);
 		b3.addActionListener(this);
+		cb1.addActionListener(this);
 				
 		// Set buttons size
 		b1.setPreferredSize(new Dimension(50, 20));
@@ -43,10 +48,8 @@ public class PartTwo extends JFrame implements ActionListener {
 		cp = getContentPane();
 		cp.setLayout(gridBag);
 		
-		// Set horizontal placement
 		c.fill = GridBagConstraints.HORIZONTAL;
 		
-		// Set placement of buttons 1-3
 		c.gridx = 0;
 		c.gridy = 0;
 		gridBag.setConstraints(b1, c);
@@ -57,24 +60,37 @@ public class PartTwo extends JFrame implements ActionListener {
 		gridBag.setConstraints(b2, c);
 		cp.add(b2);
 				
-		c.gridx = 3;
+		c.gridx = 2;
 		c.gridy = 0;
 		gridBag.setConstraints(b3, c);
 		cp.add(b3);
+		
+		c.gridx = 3;
+		c.gridy = 0;
+		gridBag.setConstraints(cb1, c);
+		cp.add(cb1);
 				
 		setVisible(true);
 		setSize(400, 400);
 	}
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		new PartTwo();
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
+		if (e.getSource().equals(cb1)){
+			if (cb1.isSelected()) {
+				b1.setBackground(Color.green);
+				b2.setBackground(Color.blue);
+				b3.setBackground(Color.red);
+			}
+			else {
+				b1.setBackground(Color.lightGray);
+				b2.setBackground(Color.lightGray);
+				b3.setBackground(Color.lightGray);
+			}
+		}	
 	}
-
 }
